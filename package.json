@@ -1,0 +1,29 @@
+{
+  "name": "lodow-chrisbaudot",
+  "version": "1.0.2",
+  "description": "my lodown package for bootcamp",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha -- test/ -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisbaudot/lodown.git"
+  },
+  "author": "Chris Baudot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisbaudot/lodown/issues"
+  },
+  "homepage": "https://github.com/chrisbaudot/lodown#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "i": "^0.3.6",
+    "istanbul": "^0.4.5",
+    "mocha": "^7.0.1",
+    "sinon": "^9.0.0"
+  }
+}
