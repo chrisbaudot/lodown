@@ -195,7 +195,8 @@ module.exports.unique = unique;
  * @param {Array} array: the collection we will search through
  * 
  * @param {Function} action: a function that will use each to test values in the array to see 
- * if the value is truthy and have the value be stored in a newArray.
+ * if the value is truthy and have the value be stored in a newArray.  If the function does not return a 
+ * boolean, we will still look to see if the value is tuthy before puting it into the return array.
  * 
  * @return {Array}: after each has seen each element, the truty array will be returned
  */
@@ -218,7 +219,8 @@ module.exports.filter = filter;
  * @param {Array} array: the collection we will search through
  * 
  * @param {Function} action: a function that will use each to test values in the array to see 
- * if the value is falsy and have the value be stored in a array.
+ * if the value is falsy and have the value be stored in a array. If the function does not return a 
+ * boolean, we will still look to see if the value is falsy before puting it into the return array.
  * 
  * @return {Array}: after each has seen each element, the falsy array will be returned
  */
@@ -238,7 +240,8 @@ module.exports.reject = reject;
  * @param {Array} array: the array that is searched through.
  * 
  * @param {Function} action: the function that we will uses to test wether each element is 
- * truthy or falsy
+ * truthy or falsy. If the function does not return a boolean, we will still look to see if the value 
+ * is tuthy or falsy before puting it into the respective array.
  * 
  * @return {Array}: after each element is filtered/rejected we return an array with 
  * both a truthy and falsy array.
@@ -281,7 +284,7 @@ module.exports.map = map;
  * 
  * @param {Array} array: an array of objects that we will iterate though.
  * 
- * @param {Property} key: the property we will use to find the values.
+ * @param {String} key: the string we will use to find the values.
  * 
  * @return {Array}: an array of all the values from the objects
  */
@@ -304,7 +307,7 @@ module.exports.pluck = pluck;
  * 
  * @return {Boolean}: after checking each value, and making sure there is a function, 
  * if any value is not true or unable to return true we will return false. Only if 
- * all values are truthy will we return true.
+ * all values are truthy will we return true. If no function is given we will return true.
  */
 
 function every(collection, action){
@@ -336,7 +339,7 @@ module.exports.every = every;
  * 
  * @return {Boolean}: after checking each value, and making sure there is a function, 
  * if any value is found to be true we will return true. Only if all values are falsy
- * will we return false.
+ * will we return false. If no function is given we will return false.
  */
 
 
