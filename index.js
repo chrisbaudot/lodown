@@ -170,7 +170,7 @@ function each(collection, action) {
 module.exports.each = each;
 
 /**
- * unique: Used to loop through a collection
+ * unique: Used to loop through an array to select only unique values to be added to a new array.
  * 
  * @param {Array} array: the collection we will loop though to check for unique values.
  * 
@@ -190,7 +190,7 @@ function unique(array){
 module.exports.unique = unique;
 
 /**
- * filter: Search through an array returning an array of only values that are found true.
+ * filter: Search through an array returning an array of only values that are found true by the test funtion.
  * 
  * @param {Array} array: the collection we will search through
  * 
@@ -212,7 +212,7 @@ function filter(array, action){
 module.exports.filter = filter;
 
 /**
- * reject: search through an array and return values that are found to be falsy 
+ * reject: search through an array and return values that are found to be falsy by the test funtion
  * in an array.
  * 
  * @param {Array} array: the collection we will search through
@@ -222,11 +222,7 @@ module.exports.filter = filter;
  * 
  * @return {Array}: after each has seen each element, the falsy array will be returned
  */
- 
- //I: array and a function
-//O: an array of false values
-//C: must use filter
-//we will return a filtered array that has returned false values.
+
 function reject(array, action){
     return filter(array, function(element, i, array){
         return (!(action(element, i, array)));
@@ -235,23 +231,19 @@ function reject(array, action){
 module.exports.reject = reject;
 
 /**
- * partition: Seperat the truthy vales into an array and the falsy values into an 
- * array, and placing bothe arrays into a singel array holding both the truthy and 
- * falsy arrays.
+ * partition: Seperat each value tested by the fuction where truthy vales are put into an array 
+ * and the falsy values into a seperate array, aftewards placing both arrays into a singel array holding 
+ * both the truthy and falsy arrays.
  * 
  * @param {Array} array: the array that is searched through.
  * 
- * @param {Function} action: the function that we will uses to effect each element.
+ * @param {Function} action: the function that we will uses to test wether each element is 
+ * truthy or falsy
  * 
  * @return {Array}: after each element is filtered/rejected we return an array with 
  * both a truthy and falsy array.
  */
- 
-//I: an array and a function
-//O: an array of two arrays
-//E: one array will be truthy, the other is falsy
-//useing filter to find all the truthy values and reject to find all the falsy 
-//values, we return a new array with the truth array from filter and a falsy array from reject.
+
 
 function partition(array, action){
     let truthy = filter(array, function(element, i, array) {
@@ -265,7 +257,8 @@ function partition(array, action){
 module.exports.partition = partition;
 
 /**
- * map: loop through a collection preforming an action on each element.
+ * map: loop through a collection preforming an action on each element and returning 
+ * the affected elements in an array.
  * 
  * @param {Array or Object} collection: the collection we will iterate through
  * 
@@ -284,7 +277,7 @@ function map(collection, action){
 module.exports.map = map;
 
 /**
- * pluck: iterate over an array of objects to make an array of propertie values.
+ * pluck: Iterate over an array of objects to make an array of string values.
  * 
  * @param {Array} array: an array of objects that we will iterate though.
  * 
@@ -310,8 +303,8 @@ module.exports.pluck = pluck;
  * @param {Function} action: used to test if values are false
  * 
  * @return {Boolean}: after checking each value, and making sure there is a function, 
- * if any value is falsy we will return false, but only if all values are truthy
- * will we return true.
+ * if any value is not true or unable to return true we will return false. Only if 
+ * all values are truthy will we return true.
  */
 
 function every(collection, action){
@@ -342,7 +335,7 @@ module.exports.every = every;
  * @param {Function} action: used to test if values are true
  * 
  * @return {Boolean}: after checking each value, and making sure there is a function, 
- * if any value is true we will return true, but only if all values are falsy
+ * if any value is found to be true we will return true. Only if all values are falsy
  * will we return false.
  */
 
@@ -373,7 +366,8 @@ module.exports.some = some;
  * 
  * @param {Function} action: the previous result being added to the curent result
  * 
- * @param {Seed} seed: the optional value that sets the start point, if no seed the first element will be the start.
+ * @param {value} seed: the optional value that sets the start point, if there is 
+ * no seed the first element will be the start.
  * 
  * @return {Value}: will return a value that has been folded.
  */
